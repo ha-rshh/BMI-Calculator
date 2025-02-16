@@ -11,11 +11,14 @@ const age = document.getElementById("age-input");
 const userHeight = document.getElementById("height-input");
 const userWeight = document.getElementById("weight-input");
 const calculateButton = document.getElementById("calc-btn");
-const resultContainer = document.getElementsByClassName("result-container");
+const resultContainer = document.getElementById("result-container");
 
 calculateButton.addEventListener("click", () => {
   let height = userHeight.value;
   let weight = userWeight.value;
   let bmiValue = weight / ((height * height) / 10000).toFixed(2);
-  resultContainer.innerText = bmiValue;
+  let newEle = document.createElement("div");
+  newEle.innerText = bmiValue.toFixed(2);
+
+  resultContainer.appendChild(newEle);
 });
